@@ -1,6 +1,3 @@
-Array.prototype.polycount = function (criteria) {
-    return this.join("").split(criteria).length - 1 }
-    
 Array.prototype.polyint = function () {
     return this.map(e => parseInt(e)) }
     
@@ -9,9 +6,6 @@ String.prototype.polycount = function (criteria) {
 
 Array.prototype.polysplit = function (ifs) {
     return this.join("").split(ifs) }
-
-Array.prototype.polysum = function (subject) {
-    return this.reduce((a,b) => a + b, 0) }
 
 Array.prototype.sliceAll = function (criteria) {
     return this.filter(e=>e !== criteria) }
@@ -35,7 +29,7 @@ const solution = (size, nono) => {
     let nonoIndex = Math.floor((size + 1) / 2),
           nonoTop = rotateGrid(nono).slice(nonoIndex),     
          nonoLeft = nono.map( (e,i) => 
-                    i >= idx ? e.slice(0) : '').slice(idx)
+                    i >= nonoIndex ? e.slice(0) : '').slice(nonoIndex)
     
     if (nonoTop.every(e=>nonoCheck(e,nonoIndex)) &&
         nonoLeft.every(e=>nonoCheck(e,nonoIndex)))
